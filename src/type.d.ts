@@ -1,0 +1,1 @@
+type ColumnsId = 'available' | 'selected';
