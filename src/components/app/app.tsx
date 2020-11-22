@@ -1,11 +1,10 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import ExportPage from '../export-page';
-import SidePanel from '../side-panel/side-panel';
+import ExportPage from '../export-page/';
+import SidePanel from '../side-panel/';
 
 import '@atlaskit/css-reset';
 import './app.css';
-
 
 const App = () => {
   return (

@@ -3,7 +3,7 @@ import React from 'react';
 const {
   Provider: BeerDataProvider,
   Consumer: BeerDataConsumer
-} = React.createContext();
+} = React.createContext('');
 
 export {
   BeerDataProvider,

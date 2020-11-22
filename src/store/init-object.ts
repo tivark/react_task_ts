@@ -35,7 +35,7 @@ const initObject = {
     }
   ],
   requestSend: false,
-  baseUpdated: false,
+  dataUpdated: false,
   lastUpdate:[],
   currentPath: '/',
   filterByName: '',

@@ -1,13 +1,13 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {sendBaseRequest, baseLoaded} from '../../actions';
+import { connect } from 'react-redux';
 import BeerService from '../../services/beer-service';
+import {dataLoaded, sendDataRequest} from '../../actions/actionCreators';
 import getParamFromOptions from '../../utils/getParamsFromOptions';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import './request-button.css';
-import {commonStyles} from '../../styles/styles';
+import { commonStyles } from '../../styles/styles';
 
 const useStyles = makeStyles({
   button: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   }
 })
 
-const RequestButton = (props) => {
+const RequestButton = ( props: any ) => {
   const beerService = new BeerService();
   const classes = useStyles();
 
@@ -31,13 +31,13 @@ const RequestButton = (props) => {
     variant='contained'
     disableElevation
     fullWidth
-    disabled={props.baseUpdated}
+    disabled={props.dataUpdated}
     className={classes.button}>
     Настроить атрибуты
   </Button>)
 
   const getItemsList = () => {
-    if (props.baseUpdated) {
+    if (props.dataUpdated) {
       return;
     }
 
@@ -46,10 +46,10 @@ const RequestButton = (props) => {
       params = '&' + params;
     }
 
-    props.sendBaseRequest();
+    props.sendDataRequest();
     beerService.getData(params)
       .then((data) => {
-        props.baseLoaded(data);
+        props.dataLoaded(data);
       })
       .catch((error) => {
         console.error(error.message);
@@ -65,10 +65,10 @@ const RequestButton = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state:any) => {
   return {
     items: state.items,
-    baseUpdated: state.baseUpdated,
+    dataUpdated: state.dataUpdated,
     requestSend: state.requestSend,
     columns: state.columns,
     requestOptions: state.requestOptions,
@@ -77,8 +77,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  baseLoaded,
-  sendBaseRequest
+  dataLoaded,
+  sendDataRequest
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RequestButton);

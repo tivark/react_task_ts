@@ -1,23 +1,23 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {checkboxOptionToggle, checkboxAllToggle} from '../../actions';
+import { checkboxAllToggle, checkboxOptionToggle } from '../../actions/actionCreators';
 import './option-checkbox.css';
 
-const OptionCheckbox = (props) => {
-  const {option, groupId, selectedOptions} = props;
+const OptionCheckbox = ( props: any ) => {
+  const { option, groupId, selectedOptions } = props;
 
   const isAllChecked = selectedOptions[option.id].length === option.variants.length;
 
-  const toggleOption = (event) => {
-    props.checkboxOptionToggle(option.id, event.target.name);
+  const toggleOption = ( event: any ) => {
+    props.checkboxOptionToggle( option.id, event.target.name );
   }
 
   const toggleAll = () => {
-    props.checkboxAllToggle(option.id, groupId);
+    props.checkboxAllToggle( option.id, groupId );
   }
 
   return (
@@ -33,18 +33,18 @@ const OptionCheckbox = (props) => {
 
       <FormGroup className='checkbox-sublist'>
         {
-          option.variants.map((variant) => {
+          option.variants.map( ( variant: any ) => {
             const isChecked = (option.id in selectedOptions)
-              && selectedOptions[option.id].includes(variant.id);
+              && selectedOptions[option.id].includes( variant.id );
 
             return (
               <FormControlLabel
                 control={
                   <Checkbox
-                    name={variant.id}
-                    checked={isChecked}
+                    name={ variant.id }
+                    checked={ isChecked }
                     color='primary'
-                    onChange={toggleOption}
+                    onChange={ toggleOption }
                   />
                 }
                 label={variant.label}
@@ -58,9 +58,9 @@ const OptionCheckbox = (props) => {
   )
 }
 
-const mapStateToProps = ({selectedOptions}) => {
+const mapStateToProps = ( state: any ) => {
   return {
-    selectedOptions
+    selectedOptions: state.selectedOptions
   }
 }
 

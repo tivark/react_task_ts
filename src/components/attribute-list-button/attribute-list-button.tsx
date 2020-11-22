@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
 import {connect} from 'react-redux';
-import {relocateAllAttributes} from '../../actions';
+import {relocateAllAttributes} from '../../actions/actionCreators';
 import {makeStyles} from '@material-ui/styles';
 
 import './attribute-list-button.css';
@@ -16,12 +16,12 @@ const useStyles = makeStyles({
   }
 })
 
-const AttributeListButton = (props) => {
+const AttributeListButton = (props:any) => {
   const {type, isInactive, columnId} = props;
   const classes = useStyles();
   let buttonText = type === 'ADD_ALL' ? 'Выбрать всё' : 'Удалить всё';
 
-  const onClickHandler = () => {
+  const onClickHandler = ():void => {
     props.relocateAllAttributes(columnId);
   }
 
