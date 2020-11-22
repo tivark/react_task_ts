@@ -1,0 +1,17 @@
+.options-panel{
+    width: 20%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.options-wrapper{
+    box-sizing: border-box;
+    width: 100%;
+    flex: 1 1 auto;
+    height: 0;
+    overflow-y: auto;
+    padding-right: 10px;
+}

@@ -1,0 +1,18 @@
+.export-page__title{
+    margin-bottom: 10px;
+}
+.export-page-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.export-page-container .panels-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    overflow: hidden;
+}

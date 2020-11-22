@@ -1,0 +1,43 @@
+.attribute-list {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrolling-wrapper {
+    flex: 1 1 auto;
+    height: 0;
+    overflow-y: auto;
+}
+
+.droppable-wrapper {
+    width: calc(100% - 7px);
+    height: 100%;
+}
+
+.attribute-list__items {
+    height: 100%;
+}
+
+.attribute-list:first-child {
+    margin-right: 20px;
+}
+
+.attribute-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.non-attr-message {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50%;
+    font-weight: 700;
+}
+
+

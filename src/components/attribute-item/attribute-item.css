@@ -1,0 +1,13 @@
+.attribute-item__text{
+    display: inline-block;
+    width: 100%;
+}
+
+.item-button{
+    opacity: 0;
+}
+
+.attribute-item:hover .attribute-item__button{
+    transition: opacity .2s;
+    opacity: 1;
+}
