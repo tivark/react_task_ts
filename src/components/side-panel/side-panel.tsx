@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Theme } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import HomeIcon from '@material-ui/icons/Home';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import DvrIcon from '@material-ui/icons/Dvr';
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from '@material-ui/styles';
 
 import './side-panel.css';
 
-const useStyles = makeStyles( {
+const useStyles = makeStyles( ( theme: Theme ) => createStyles( {
   paper: {
     position: 'relative',
     backgroundColor: '#4A4A4A',
@@ -21,13 +21,13 @@ const useStyles = makeStyles( {
     borderBottomRightRadius: '0',
     borderTopLeftRadius: '5px',
     borderBottomLeftRadius: '5px',
-    color:'#ffffff',
-    '&:disabled':{
-      color:'#4A4A4A',
+    color: '#ffffff',
+    '&:disabled': {
+      color: '#4A4A4A',
       backgroundColor: '#ffffff'
     }
   }
-})
+} ) )
 
 const SidePanel = ( props: any ) => {
   const { sidePanel, location } = props;

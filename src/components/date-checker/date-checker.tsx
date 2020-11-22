@@ -1,17 +1,18 @@
 import React from 'react';
 import DateOption from '../date-option';
 import Paper from '@material-ui/core/Paper';
-import {makeStyles} from "@material-ui/styles";
-import {commonStyles} from '../../styles/styles';
+import { createStyles, makeStyles } from "@material-ui/styles";
+import { commonStyles } from '../../styles/styles';
+import { Theme } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( ( theme: Theme ) => createStyles( {
   root: {
     backgroundColor: commonStyles.backgroundColor,
     marginBottom: '10px'
   },
   title: {
     display: 'inline-block',
-    fontWeight: '600',
+    fontWeight: 'bold',
     marginBottom: '10px'
   },
   container: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
     display: 'flex'
   }
 
-})
+} ) )
 
 const DateChecker = () => {
   const classes = useStyles();

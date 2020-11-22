@@ -1,14 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {DragDropContext} from 'react-beautiful-dnd';
+import { connect } from 'react-redux';
+import { DragDropContext } from 'react-beautiful-dnd';
 import AttributeList from '../attribute-list';
-import {attributeDragEnd} from '../../actions/actionCreators';
+import { attributeDragEnd } from '../../actions/actionCreators';
 import AttributeFilterByName from '../attribute-filter-by-name';
 import Paper from '@material-ui/core/Paper';
-import {commonStyles} from '../../styles/styles';
-import {makeStyles} from '@material-ui/styles';
+import { commonStyles } from '../../styles/styles';
+import { createStyles, makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
-const useStyles: any = makeStyles({
+const useStyles = makeStyles( ( theme: Theme ) => createStyles( {
   paper: {
     backgroundColor: commonStyles.backgroundColor,
     padding: '10px',
@@ -24,16 +25,16 @@ const useStyles: any = makeStyles({
     flexWrap: 'wrap'
   },
   title: {
-    fontWeight: '700',
+    fontWeight: 'bold',
     marginBottom: '10px',
     display: 'inline-block'
   },
   listWrapper: {
     display: 'flex',
     width: '100%',
-    flexGrow: '1'
+    flexGrow: 1
   }
-})
+} ) )
 
 const AttributeSelector = (props:any) => {
   const {items, columns, columnOrder} = props;
